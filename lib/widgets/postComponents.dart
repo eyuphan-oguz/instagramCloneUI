@@ -60,38 +60,85 @@ class _PostWidgetViewState extends State<PostWidgetView> {
             ],
                 ),
                 Container(
-                  height: widget.size.height*0.6,
+                  height: widget.size.height*0.55,
                   width: widget.size.width*1,
                   child: Image.network(_items[index]['postImg'],fit: BoxFit.fill),
                 ),
-                SizedBox(height: 20,),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Container(
-                      width: widget.size.width*0.28,
-                      height: widget.size.height*0.04,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _items[index]['isLoved']==true ?Image.asset('assets/images/png/loved.png'):
-                              Image.asset('assets/images/png/love.png'),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Container(
+                        width: widget.size.width*0.28,
+                        height: widget.size.height*0.04,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _items[index]['isLoved']==true ?Image.asset('assets/images/png/loved.png'):
+                                Image.asset('assets/images/png/love.png'),
 
-                          Image.asset('assets/images/png/comment.png'),
-                          Image.asset('assets/images/png/share.png'),
+                            Image.asset('assets/images/png/comment.png'),
+                            Image.asset('assets/images/png/share.png'),
+
+                          ],
+
+                        ),
+                      )  ,
+                      Container(
+                          height: widget.size.height*0.035,
+                          child: Image.asset('assets/images/png/save.png')),
+
+
+                    ],
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 8.0),
+                  child: Column(
+                    children: [
+                      Row(
+                        children: [
+                          Text('Liked By',style: TextStyle(color: Colors.white),),
+                          SizedBox(width: 5,),
+                          Text(_items[index]['likedBy'],style: TextStyle(fontWeight: FontWeight.bold,color: Colors.white),),
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+                      Row(
+                        children: [
+                          Text(_items[index]['name'],style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold),),
+                          SizedBox(width: 5,),
+                          Expanded(child: Text(_items[index]['caption'],style: TextStyle(color: Colors.white),),)
+                        ],
+                      ),
+                      SizedBox(height: 10,),
+
+                      Row(
+                        children: [
+                          Text('View',style: TextStyle(color: Colors.grey.shade400)),
+                          SizedBox(width: 3,),
+                          Text(_items[index]['commentCount'],style: TextStyle(color: Colors.grey.shade400,fontWeight: FontWeight.bold),),
+                          SizedBox(width: 3,),
+                          Text('comment',style: TextStyle(color: Colors.grey.shade400)),
 
                         ],
-
                       ),
-                    )  ,
-                    Container(
+                      SizedBox(height: 10,),
 
-                        height: widget.size.height*0.035,
-                        child: Image.asset('assets/images/png/save.png')),
+                      Row(
+                        children: [
+                          Text(_items[index]['timeAgo'],style: TextStyle(color: Colors.grey.shade700,fontWeight: FontWeight.bold),),
+                        ],
+                      ),
 
-                  ],
+                    ],
+                  )
                 ),
-                SizedBox(height: 40,),
+                SizedBox(height: 10,),
+
               ],
             );
           }),

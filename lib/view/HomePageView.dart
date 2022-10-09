@@ -20,6 +20,16 @@ class _HomePageViewState extends State<HomePageView> {
     double deviceWidth=MediaQuery.of(context).size.width;
     double deviceHeight=MediaQuery.of(context).size.height;
     return SafeArea(child: Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+       backgroundColor: Colors.black,
+        items: [
+          BottomNavigationBarItem(icon: Icon(Icons.home,),label: '',backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.search),label: '',backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box),label: '',backgroundColor: Colors.black),
+          BottomNavigationBarItem(icon: Icon(Icons.person),label: '',backgroundColor: Colors.black),
+
+        ],
+      ),
       appBar: PreferredSize(preferredSize: deviceSize*0.07,
           child: CustomAppbarWidget(size: deviceSize,)),
       body: SingleChildScrollView(

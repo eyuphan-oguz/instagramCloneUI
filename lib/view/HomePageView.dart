@@ -32,7 +32,7 @@ class _HomePageViewState extends State<HomePageView> {
                 ],
               ),
             ),
-            PostComponents(size: deviceSize,)
+            PostWidgetView(size: deviceSize,)
 
           ],
         ),

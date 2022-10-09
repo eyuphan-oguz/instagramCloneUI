@@ -2,22 +2,22 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ins/constant/colors.dart';
-import 'package:ins/constant/icons.dart';
+import 'package:ins/widgets/pngImageWidget.dart';
 
-class PostComponents extends StatefulWidget {
-  const PostComponents({Key? key, required this.size}) : super(key: key);
+class PostWidgetView extends StatefulWidget {
+  const PostWidgetView({Key? key, required this.size}) : super(key: key);
   final Size size;
+
   @override
-  State<PostComponents> createState() => _PostComponentsState();
+  State<PostWidgetView> createState() => _PostWidgetViewState();
 }
 
+class _PostWidgetViewState extends State<PostWidgetView> {
 
-class _PostComponentsState extends State<PostComponents> {
   List _items = [];
 
-  Future<void> readJson() async {
-    final String response = await rootBundle.loadString('assets/jsons/storyPhotoData.json');
+  Future<void> getPostData() async {
+    final String response = await rootBundle.loadString('assets/jsons/postData.json');
     final data = await json.decode(response);
     setState(() {
       _items = data["items"];
@@ -25,80 +25,80 @@ class _PostComponentsState extends State<PostComponents> {
   }
   @override
   void initState() {
-    readJson();
+    getPostData();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: widget.size.height*1,
-      width: widget.size.width*1,
-      child: ListView.builder(
-          shrinkWrap: true,
-          itemCount: _items.length,
-          itemBuilder: (context,index){
-            return Container(
-
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Row(
-                        children: [
-                          Container(
-                            width: widget.size.width*0.1,
-                            height: widget.size.width*0.1,
-                            decoration: BoxDecoration(
-                              shape: BoxShape.circle,
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: ProjectColor.storyBorderColor),
-                            ),
-                            child: Container(
-                              decoration: BoxDecoration(
-                                  border: Border.all(color: Colors.black, width: 2),
-                                  shape: BoxShape.circle,
-                                  image: DecorationImage(
-                                      image: AssetImage(_items[index]['imageUrl']), fit: BoxFit.cover)),
-                            ),
-                          ),Text(_items[index]['userName'],style: TextStyle(color: Colors.white),),
-
-                        ],
-                      ),
-
-                      Icon(Icons.more_horiz,color: Colors.white,)
-
-            ],
-                  ),
-                  Container(height: widget.size.height*0.67,child:
-                    Column(
-                      children: [
-                        Expanded(
-                          child: Container(height: widget.size.height*0.6,
-                          child:Image.asset(_items[index]['imageUrl'],fit: BoxFit.fill,) ,),
-                        ),
+      return SingleChildScrollView(
+        child: Column(
+          children: List.generate(_items.length, (index){
+            return Column(
+              children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Row(
-                    children: [Icon(Icons.favorite_border_outlined,color: Colors.white),
-                      Icon(Icons.maps_ugc_rounded,color: Colors.white),
-                      Icon(Icons.send,color: Colors.white)],
-                  ),
-                  Icon(Icons.turned_in_not_sharp,color: Colors.white)
-                            ],
-                          )
-
+                  children: [
+                    Row(
+                      children: [
+                        Container(
+                          width: widget.size.width*0.11,
+                          height: widget.size.width*0.11,
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child: Padding(
+                              padding: const EdgeInsets.all(3.0),
+                              child: CustomNetworkImage(imagePath: _items[index]['profileImg'],)
+                          ),
+                        ),
+                        Text(_items[index]['name'],style: TextStyle(color: Colors.white),)
                       ],
-                    ),)
-                ],
-              ),
+                    ),
+            Icon(Icons.more_horiz,color: Colors.white,)
+
+            ],
+                ),
+                Container(
+                  height: widget.size.height*0.6,
+                  width: widget.size.width*1,
+                  child: Image.network(_items[index]['postImg'],fit: BoxFit.fill),
+                ),
+                SizedBox(height: 20,),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                      width: widget.size.width*0.28,
+                      height: widget.size.height*0.04,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          _items[index]['isLoved']==true ?Image.asset('assets/images/png/loved.png'):
+                              Image.asset('assets/images/png/love.png'),
+
+                          Image.asset('assets/images/png/comment.png'),
+                          Image.asset('assets/images/png/share.png'),
+
+                        ],
+
+                      ),
+                    )  ,
+                    Container(
+
+                        height: widget.size.height*0.035,
+                        child: Image.asset('assets/images/png/save.png')),
+
+                  ],
+                ),
+                SizedBox(height: 40,),
+              ],
             );
-
-
           }),
-    );
+    ),
+      );
+
+
+
   }
 }

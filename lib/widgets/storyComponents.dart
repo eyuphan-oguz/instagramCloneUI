@@ -16,7 +16,7 @@ class StoryComponents extends StatefulWidget {
 class _StoryComponentsState extends State<StoryComponents> {
   List _items = [];
 
-  Future<void> readJson() async {
+  Future<void> readStroyData() async {
     final String response = await rootBundle.loadString('assets/jsons/storyPhotoData.json');
     final data = await json.decode(response);
     setState(() {
@@ -25,7 +25,7 @@ class _StoryComponentsState extends State<StoryComponents> {
   }
   @override
   void initState() {
-      readJson();
+    readStroyData();
     super.initState();
   }
   @override

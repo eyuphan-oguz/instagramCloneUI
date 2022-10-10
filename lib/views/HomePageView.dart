@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:ins/widgets/appbarComponents.dart';
+import 'package:ins/components/appbarComponents.dart';
+import 'package:ins/components/storyComponents.dart';
 import 'package:ins/widgets/customBottomNavigationBar.dart';
-import 'package:ins/widgets/postComponents.dart';
-import 'package:ins/widgets/storyComponents.dart';
+import 'package:ins/components/postComponents.dart';
 
 class HomePageView extends StatefulWidget {
   const HomePageView({Key? key}) : super(key: key);

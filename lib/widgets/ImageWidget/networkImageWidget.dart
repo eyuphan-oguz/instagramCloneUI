@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ins/constants/colors.dart';
 
 class CustomNetworkImage extends StatelessWidget {
   const CustomNetworkImage({Key? key, required this.imagePath}) : super(key: key);
@@ -9,7 +10,7 @@ class CustomNetworkImage extends StatelessWidget {
     return Container(
 
       decoration: BoxDecoration(
-          border: Border.all(color: Colors.black, width: 2),
+          border: Border.all(color: ProjectColor.networkImageBackgroundColor, width: 2),
           shape: BoxShape.circle,
           image: DecorationImage(
               image: NetworkImage(imagePath), fit: BoxFit.cover)),

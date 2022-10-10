@@ -2,8 +2,8 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:ins/widgets/accountHolderStoryShape.dart';
-import 'package:ins/widgets/storyShapeImage.dart';
+import 'package:ins/widgets/StoryWidgets/accountHolderStoryShape.dart';
+import 'package:ins/widgets/StoryWidgets/storyShapeImage.dart';
 
 class StoryComponents extends StatefulWidget {
   const StoryComponents({Key? key, required this.size}) : super(key: key);

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ins/constant/colors.dart';
+import 'package:ins/constants/colors.dart';
 
 class AccountHolderStoryShape extends StatefulWidget {
   const AccountHolderStoryShape({Key? key}) : super(key: key);
@@ -32,7 +32,6 @@ class _AccountHolderStoryShapeState extends State<AccountHolderStoryShape> {
                     height: 19,
                     decoration: BoxDecoration(
                         shape: BoxShape.circle,
-                        color: Colors.white
                     ),
                     child: Icon(Icons.add_circle,color: ProjectColor.addStoryButtonColor,size: 19,),
                   ))
@@ -45,7 +44,7 @@ class _AccountHolderStoryShapeState extends State<AccountHolderStoryShape> {
             child: Text('Story',
               overflow: TextOverflow.ellipsis,
               style: TextStyle(
-                  color: Colors.white
+                  color: ProjectColor.textColorWhite
               ),),
           )
           ,)

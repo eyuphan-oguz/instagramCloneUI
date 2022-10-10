@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:ins/constant/colors.dart';
-import 'package:ins/constant/icons.dart';
-import 'package:ins/constant/svgImageItems.dart';
+import 'package:ins/constants/colors.dart';
+import 'package:ins/constants/icons.dart';
+import 'package:ins/constants/svgImageItems.dart';
+
 class CustomAppbarWidget extends StatefulWidget {
   const CustomAppbarWidget({Key? key, required this.size}) : super(key: key);
   final Size size;
@@ -26,13 +27,13 @@ class _CustomAppbarWidgetState extends State<CustomAppbarWidget> {
       actions: [
         IconButton(onPressed: (){}, icon: ProjectIcon.addIcon,style: ButtonStyle(
     backgroundColor: MaterialStateProperty.all<Color>(
-    ProjectColor.iconColor),),),
+    ProjectColor.iconColorBlack),),),
         IconButton(onPressed: (){}, icon: ProjectIcon.notificationIcon,style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
-              ProjectColor.iconColor),),),
+              ProjectColor.iconColorBlack),),),
         IconButton(onPressed: (){}, icon: ProjectIcon.messageIcon,style: ButtonStyle(
           backgroundColor: MaterialStateProperty.all<Color>(
-              ProjectColor.iconColor),),),
+              ProjectColor.iconColorBlack),),),
       ],
     );
   }

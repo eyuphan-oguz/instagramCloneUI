@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ins/widgets/appbarComponents.dart';
+import 'package:ins/widgets/customBottomNavigationBar.dart';
 import 'package:ins/widgets/postComponents.dart';
 import 'package:ins/widgets/storyComponents.dart';
 
@@ -17,19 +18,8 @@ class _HomePageViewState extends State<HomePageView> {
   Widget build(BuildContext context) {
 
     Size deviceSize=MediaQuery.of(context).size;
-    double deviceWidth=MediaQuery.of(context).size.width;
-    double deviceHeight=MediaQuery.of(context).size.height;
     return SafeArea(child: Scaffold(
-      bottomNavigationBar: BottomNavigationBar(
-       backgroundColor: Colors.black,
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home,),label: '',backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.search),label: '',backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.add_box),label: '',backgroundColor: Colors.black),
-          BottomNavigationBarItem(icon: Icon(Icons.person),label: '',backgroundColor: Colors.black),
-
-        ],
-      ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
       appBar: PreferredSize(preferredSize: deviceSize*0.07,
           child: CustomAppbarWidget(size: deviceSize,)),
       body: SingleChildScrollView(

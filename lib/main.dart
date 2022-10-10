@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ins/constant/colors.dart';
-import 'package:ins/view/HomePageView.dart';
+import 'package:ins/constants/colors.dart';
+import 'package:ins/views/HomePageView.dart';
+
 
 
 void main(){

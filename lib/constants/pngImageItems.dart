@@ -3,4 +3,5 @@ class PngImageItems{
   static String love='love';
   static String loved='loved';
   static String share='share';
+  static String save='save';
 }

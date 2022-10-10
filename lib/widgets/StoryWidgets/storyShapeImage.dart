@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ins/constant/colors.dart';
+import 'package:ins/constants/colors.dart';
 
 class StoryShapeImage extends StatefulWidget {
   const StoryShapeImage(
@@ -48,7 +48,7 @@ class _StoryShapeImageState extends State<StoryShapeImage> {
             child: Text(
               widget.userName,
               overflow: TextOverflow.ellipsis,
-              style: TextStyle(color: Colors.white),
+              style: TextStyle(color: ProjectColor.textColorWhite),
             ),
           ),
         )
